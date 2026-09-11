@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Verify build tools
-        shell: pwsh
+        shell: cmd
         run: |
           dotnet --version
           node --version
