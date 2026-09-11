@@ -19,7 +19,7 @@ jobs:
           npm --version
 
       - name: Deploy to IIS
-        shell: cmd
+        shell: powershell
         env:
           DEPLOY_BACKEND_PATH: ${{ vars.DEPLOY_BACKEND_PATH }}
           DEPLOY_FRONTEND_PATH: ${{ vars.DEPLOY_FRONTEND_PATH }}
