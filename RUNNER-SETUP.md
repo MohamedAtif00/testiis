@@ -25,12 +25,22 @@ cd C:\actions-runner
 
 When asked for labels, press Enter to accept defaults (`self-hosted`, `Windows`, `X64`).
 
-## 3. Install prerequisites on the VM
+## 3. Install prerequisites on the VM (required before deploy)
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
-- [Node.js 20 LTS](https://nodejs.org/)
+Install these **on the VM** — the workflow uses the VM's installed tools (it does not install .NET/Node during the job, because the runner service lacks admin rights to `C:\Program Files\dotnet`).
+
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) — verify: `dotnet --version`
+- [Node.js 20 LTS](https://nodejs.org/) — verify: `node --version`
 - IIS + [ASP.NET Core Hosting Bundle](https://dotnet.microsoft.com/download/dotnet/10.0)
 - [IIS URL Rewrite](https://www.iis.net/downloads/microsoft/url-rewrite)
+
+Restart the runner service after installing SDK/Node so PATH is picked up:
+
+```powershell
+cd C:\actions-runner
+./svc.cmd stop
+./svc.cmd start
+```
 
 ## 4. IIS folders
 
