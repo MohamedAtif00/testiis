@@ -1,0 +1,18 @@
+publish-api/
+publish-ui/
+.deploy-staging/
+**/bin/
+**/obj/
+frontend/dist/
+frontend/node_modules/
+frontend/.angular/
+
+# IDE
+.idea/
+.vs/
+*.user
+*.suo
+
+# OS
+Thumbs.db
+Desktop.ini

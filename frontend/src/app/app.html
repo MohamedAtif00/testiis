@@ -1,0 +1,33 @@
+<main class="container">
+  <header>
+    <h1>Products</h1>
+    <p>Static data from the .NET API</p>
+  </header>
+
+  @if (loading()) {
+    <p class="status">Loading products...</p>
+  } @else if (error()) {
+    <p class="status error">{{ error() }}</p>
+  } @else {
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (product of products(); track product.id) {
+          <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.price | currency }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</main>
