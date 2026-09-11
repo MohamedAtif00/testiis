@@ -93,11 +93,12 @@ Install on the Windows Server VM:
 
 ### 2. Register self-hosted runner
 
+See **[RUNNER-SETUP.md](RUNNER-SETUP.md)** for full VM steps.
+
 1. GitHub repo → **Settings → Actions → Runners → New self-hosted runner**
-2. Choose **Windows x64**
-3. Run the config commands on the VM
-4. Install as a Windows service
-5. Add label: `windows-iis`
+2. Choose **Windows x64**, run config on the VM
+3. Install as a Windows service (`./svc.cmd install` + `./svc.cmd start`)
+4. Runner must show **Idle (green)** on GitHub before deploy works
 
 ### 3. GitHub repository variables
 
